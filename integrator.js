@@ -83,19 +83,17 @@
     }
   }
 
-  window.integrator.initNavigo = function() {
+  window.integrator.initNavigo = function(defaultRoute) {
     var root = null;
     var useHash = true; // Defaults to: false
     var hash = '#!'; // Defaults to: '#'
     var router = window.integratorRouter = new Navigo(root, useHash, hash);
     router.on({
-      '/demo/': function () {
-        integrator.loadPackages('/demo/integrator-package.json', 'demo1');
-      },
       '/demo/:app': function (params) {
         integrator.loadPackages('/demo/integrator-package.json', params.app);
       }
     });
+    router.navigate(defaultRoute);
   };
 
   window.integrator.navigate = function (to) {
