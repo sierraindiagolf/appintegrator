@@ -1,0 +1,61 @@
+{
+  "applications": {
+    "demo1": {
+      "name": "Demo App 1",
+      "id": "demo1",
+      "dependencies": {
+        "scripts": {
+          "app": {
+            "scripts": ["/demo/demo1/dist/scripts/app-8ec702df22.js"],
+            "dependencies": ["vendor"]
+          },
+          "vendor": {
+            "scripts": ["/demo/demo1/dist/scripts/vendor-de0616d29f.js"],
+            "dependencies": []
+          }
+        },
+        "styles": [
+          "/demo/demo1/dist/styles/app-cd6adfe931.css",
+          "/demo/demo1/dist/styles/vendor-63060083f1.css"
+        ],
+        "html": "/demo/demo1/dist/index.html",
+        "baseHref": "/demo/demo1/dist/",
+        "bootstrap": "/demo/demo1/dist/scripts/bootstrap.js",
+        "tierDown": "",
+        "main": "app"
+      }
+    },
+    "demo2": {
+      "name": "Demo App 2",
+      "id": "demo2",
+      "dependencies": {
+        "scripts": {
+          "app": {
+            "scripts": ["/demo/demo2/dist/main.acf8803b7cc9502753f1.bundle.js"],
+            "dependencies": ["vendor", "polyfills", "inline"]
+          },
+          "inline": {
+            "scripts": ["/demo/demo2/dist/inline.15c6afe9a4f36f9f6e79.bundle.js"],
+            "dependencies": []
+          },
+          "polyfills": {
+            "scripts": ["/demo/demo2/dist/polyfills.caf969cf7c1a374874eb.bundle.js"],
+            "dependencies": []
+          },
+          "vendor": {
+            "scripts": ["/demo/demo2/dist/vendor.3571070493319e2a03a5.bundle.js"],
+            "dependencies": []
+          }
+        },
+        "styles": [
+          "/demo/demo2/dist/styles.d41d8cd98f00b204e980.bundle.css"
+        ],
+        "html": "/demo/demo2/dist/index.html",
+        "baseHref": "/demo/demo2/dist/",
+        "bootstrap": "",
+        "tierDown": "",
+        "main": "app"
+      }
+    }
+  }
+}

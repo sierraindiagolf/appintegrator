@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="application/javascript" src="../node_modules/axios/dist/axios.min.js"></script>
+  <script type="application/javascript" src="../node_modules/scriptjs/dist/script.min.js"></script>
+  <script type="application/javascript" src="../integrator.js"></script>
+  <script type="application/javascript">
+    integrator.loadPackages('./integrator-package.json', 'demo2');
+  </script>
+  <base href="">
+</head>
+<body>
+<div id="menuContianer">
+  <a href="demo1">Demo 1</a>
+  <a href="demo1">Demo 2</a>
+  <a href="demo1">Demo 3</a>
+</div>
+<div id="appContainer"></div>
+</body>
+</html>

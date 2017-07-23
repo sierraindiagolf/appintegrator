@@ -1,0 +1,15 @@
+{
+  "name": "appintegrator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "integrator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "0.16.2",
+    "scriptjs": "^2.5.8"
+  }
+}
