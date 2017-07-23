@@ -17,7 +17,6 @@
   function bootstrapApplication(applicationId) {
     var app = integrator.appData.applications[applicationId];
     loadStyles(app);
-    loadModules(app);
     setBaseHref(app);
     loadHtml(app);
   }
@@ -30,12 +29,20 @@
   }
 
   function loadHtml(app) {
-    axios.get(app.dependencies.html)
+    axios.get(app.dependencies.html, {
+      headers: {
+        'Content-Type': 'text/html'
+      }
+    })
       .then(function(result) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(result.data, "text/html");
         var appContainer = document.querySelector('#appContainer');
-        appContainer.innerHTML = doc.body.innerHTML;
+        var child = document.createElement('div');
+        child.setAttribute('id', 'tmp-container');
+        child.innerHTML = doc.body.innerHTML;
+        appContainer.appendChild(child);
+        loadModules(app);
       });
   }
 
@@ -54,7 +61,9 @@
 
     $script.ready(dependencyKeys, function () {
       if (app.dependencies.bootstrap) {
-        $script(app.dependencies.bootstrap);
+        $script(app.dependencies.bootstrap, function () {
+          window.integrator.bootstrappers[app.id]();
+        });
       }
     });
 
@@ -73,4 +82,29 @@
       $script(module.scripts, moduleName);
     }
   }
+
+  window.integrator.initNavigo = function() {
+    var root = null;
+    var useHash = true; // Defaults to: false
+    var hash = '#!'; // Defaults to: '#'
+    var router = window.integratorRouter = new Navigo(root, useHash, hash);
+    router.on({
+      '/demo/': function () {
+        integrator.loadPackages('/demo/integrator-package.json', 'demo1');
+      },
+      '/demo/:app': function (params) {
+        integrator.loadPackages('/demo/integrator-package.json', params.app);
+      }
+    });
+  };
+
+  window.integrator.navigate = function (to) {
+    if (integrator.tearDown) {
+      integrator.tearDown();
+    }
+    if (appContainer.firstElementChild) {
+      appContainer.firstElementChild.remove();
+    }
+    window.integratorRouter.navigate(to);
+  };
 }(window));

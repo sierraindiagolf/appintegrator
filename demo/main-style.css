@@ -1,0 +1,46 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+}
+
+.integration-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 100%;
+  min-height:100%;
+}
+
+#menuContianer {
+  background-color: navy;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 100px;
+}
+
+#menuContianer a, #menuContianer a:active, #menuContianer a:hover, #menuContianer a:visited {
+  display: inline-block;
+  padding: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+#menuContianer a:hover {
+  text-decoration: underline;
+}
+
+#appContainer {
+  display: block;
+  flex: 1 1 85%;
+  overflow: auto;
+}

@@ -5,11 +5,11 @@
       "id": "demo1",
       "dependencies": {
         "scripts": {
-          "app": {
-            "scripts": ["/demo/demo1/dist/scripts/app-8ec702df22.js"],
-            "dependencies": ["vendor"]
+          "demo1": {
+            "scripts": ["/demo/demo1/dist/scripts/app-b17170d56f.js"],
+            "dependencies": ["demo1-vendor"]
           },
-          "vendor": {
+          "demo1-vendor": {
             "scripts": ["/demo/demo1/dist/scripts/vendor-de0616d29f.js"],
             "dependencies": []
           }
@@ -30,20 +30,20 @@
       "id": "demo2",
       "dependencies": {
         "scripts": {
-          "app": {
-            "scripts": ["/demo/demo2/dist/main.acf8803b7cc9502753f1.bundle.js"],
-            "dependencies": ["vendor", "polyfills", "inline"]
+          "demo2": {
+            "scripts": ["/demo/demo2/dist/main.e7a77832202c20e74016.bundle.js"],
+            "dependencies": ["demo2-vendor", "polyfills", "inline"]
           },
           "inline": {
-            "scripts": ["/demo/demo2/dist/inline.15c6afe9a4f36f9f6e79.bundle.js"],
+            "scripts": ["/demo/demo2/dist/inline.db72bfd8a82299b31381.bundle.js"],
             "dependencies": []
           },
           "polyfills": {
-            "scripts": ["/demo/demo2/dist/polyfills.caf969cf7c1a374874eb.bundle.js"],
+            "scripts": ["/demo/demo2/dist/polyfills.7746558791e5b9f2f6cd.bundle.js"],
             "dependencies": []
           },
-          "vendor": {
-            "scripts": ["/demo/demo2/dist/vendor.3571070493319e2a03a5.bundle.js"],
+          "demo2-vendor": {
+            "scripts": ["/demo/demo2/dist/vendor.9e7a0f6b9f9c8c0e49ba.bundle.js"],
             "dependencies": []
           }
         },
@@ -52,7 +52,7 @@
         ],
         "html": "/demo/demo2/dist/index.html",
         "baseHref": "/demo/demo2/dist/",
-        "bootstrap": "",
+        "bootstrap": "/demo/demo2/dist/bootstrap.js",
         "tierDown": "",
         "main": "app"
       }
